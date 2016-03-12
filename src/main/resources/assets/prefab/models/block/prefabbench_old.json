@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "prefab:blocks/prefabbench_bottom",
+    "up": "prefab:blocks/prefabbench_top",
+    "north": "prefab:blocks/prefabbench_side",
+    "east": "prefab:blocks/prefabbench_side",
+    "south": "prefab:blocks/prefabbench_side",
+    "west": "prefab:blocks/prefabbench_side"
+  }
+}

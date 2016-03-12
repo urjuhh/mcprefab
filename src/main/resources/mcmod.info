@@ -1,0 +1,18 @@
+[
+{
+  "modid": "Prefab",
+  "name": "MC Prefab",
+  "description": "Uga buga hurr durr.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [ "urjuhh" ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "parent": "",
+  "dependencies": [
+  ]
+}
+]

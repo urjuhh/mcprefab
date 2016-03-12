@@ -1,0 +1,4 @@
+item.trowel.name=Trowel
+tile.prefab.name=Prefab
+tile.prefabbench.name=Prefab bench
+itemGroup.prefab.creativeTab=Prefab
