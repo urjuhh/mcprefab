@@ -8,7 +8,13 @@ public class BlockPrefabBench extends BlockPrefab
     }
 
     @Override
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
+
+    @Override
     public boolean isFullCube() {
-        return super.isFullCube();
+        return false;
     }
 }
