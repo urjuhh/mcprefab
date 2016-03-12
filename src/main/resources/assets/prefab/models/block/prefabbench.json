@@ -1,5 +1,5 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/) ",
     "textures": {
         "0": "prefab:blocks/prefab_bench_gradient_side",
         "1": "prefab:blocks/prefabbench_bottom",
@@ -268,3 +268,4 @@
         }
     ]
 }
+
