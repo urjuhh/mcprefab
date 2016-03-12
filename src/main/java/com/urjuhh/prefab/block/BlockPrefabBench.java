@@ -6,4 +6,9 @@ public class BlockPrefabBench extends BlockPrefab
     {
         this.setUnlocalizedName("prefabbench");
     }
+
+    @Override
+    public boolean isFullCube() {
+        return super.isFullCube();
+    }
 }

@@ -16,4 +16,10 @@ public class BlockPrefab extends Block
         super(material);
         //this.setCreativeTab(CreativeTabPrefab.Prefab_TAB);
     }
+
+    @Override
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
 }
