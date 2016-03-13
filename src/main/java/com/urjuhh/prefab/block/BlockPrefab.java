@@ -14,7 +14,6 @@ public class BlockPrefab extends Block
     public BlockPrefab(Material material)
     {
         super(material);
-        //this.setCreativeTab(CreativeTabPrefab.Prefab_TAB);
     }
 
     @Override
