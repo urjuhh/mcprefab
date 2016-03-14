@@ -4,6 +4,7 @@ import com.urjuhh.prefab.handler.ConfigurationHandler;
 import com.urjuhh.prefab.init.ModBlocks;
 import com.urjuhh.prefab.init.ModItems;
 import com.urjuhh.prefab.init.Recipes;
+import com.urjuhh.prefab.init.TileEntities;
 import com.urjuhh.prefab.proxy.IProxy;
 import com.urjuhh.prefab.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -48,8 +49,9 @@ public class Prefab {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        Recipes.init();
+        TileEntities.init();
         proxy.registerRenders();
+        Recipes.init();
     }
 
     @Mod.EventHandler
