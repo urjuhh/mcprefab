@@ -30,6 +30,11 @@ public class TileEntityPrefab extends TileEntity
         this.orientation = orientation;
     }
 
+    public void setOrientation(int orientation)
+    {
+        this.orientation = EnumFacing.getFront(orientation);
+    }
+
     public short getState()
     {
         return state;
@@ -87,6 +92,7 @@ public class TileEntityPrefab extends TileEntity
         if (nbtTagCompound.hasKey("facing"))
         {
             //this.orientation = EnumFacing.getOrientation(nbtTagCompound.getByte("facing"));
+            this.orientation = EnumFacing.getFront(nbtTagCompound.getByte("facing"));
 
         }
 
