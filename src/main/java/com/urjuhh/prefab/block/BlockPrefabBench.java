@@ -1,6 +1,7 @@
 package com.urjuhh.prefab.block;
 
 import com.urjuhh.prefab.Prefab;
+import com.urjuhh.prefab.reference.Gui;
 import com.urjuhh.prefab.tileentity.TileEntityPrefab;
 import com.urjuhh.prefab.tileentity.TileEntityPrefabBench;
 import net.minecraft.block.ITileEntityProvider;
@@ -47,6 +48,7 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
             if (!world.isRemote && world.getTileEntity(pos) instanceof TileEntityPrefab)
             {
                 //player.openGui(Prefab.instance, Gui.PREFAB_BENCH.ordinal(), world, x, y, z);
+                player.openGui(Prefab.instance, Gui.PREFAB_BENCH.ordinal(), world, pos.getX(), pos.getY(), pos.getZ());
             }
 
             return true;

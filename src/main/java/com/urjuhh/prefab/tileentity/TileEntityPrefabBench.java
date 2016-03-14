@@ -11,13 +11,17 @@ import net.minecraft.util.IChatComponent;
 
 public class TileEntityPrefabBench extends TileEntityPrefab implements IInventory
 {
+    public static final int CEILING_BLOCK_SELECTOR_INDEX = 0;
+    public static final int WALL_BLOCK_SELECTOR_INDEX = 1;
+    public static final int FLOOR_BLOCK_SELECTOR_INDEX = 2;
+
     public int numUsingPlayers;
     private int ticksSinceSync;
     private ItemStack[] inventory;
 
     public TileEntityPrefabBench() {
         super();
-        inventory = new ItemStack[27];
+        inventory = new ItemStack[30];
     }
 
     @Override
@@ -109,13 +113,16 @@ public class TileEntityPrefabBench extends TileEntityPrefab implements IInventor
     }
 
     @Override
-    public void closeInventory(EntityPlayer player) {
-
+    public void closeInventory(EntityPlayer player)
+    {
+        --numUsingPlayers;
+        worldObj.addBlockEvent(this.pos, ModBlocks.prefabbench, 1, numUsingPlayers);
     }
 
     @Override
-    public boolean isItemValidForSlot(int index, ItemStack stack) {
-        return false;
+    public boolean isItemValidForSlot(int index, ItemStack stack)
+    {
+        return true;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.urjuhh.prefab.tileentity;
 
+import com.urjuhh.prefab.reference.Names;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -70,17 +71,17 @@ public class TileEntityPrefab extends TileEntity
     {
         super.writeToNBT(nbtTagCompound);
 
-        nbtTagCompound.setByte("facing", (byte) orientation.ordinal());
-        nbtTagCompound.setByte("state", state);
+        nbtTagCompound.setByte(Names.NBT.DIRECTION, (byte) orientation.ordinal());
+        nbtTagCompound.setByte(Names.NBT.STATE, state);
 
         if (this.hasCustomName())
         {
-            nbtTagCompound.setString("customname", customName);
+            nbtTagCompound.setString(Names.NBT.CUSTOM_NAME, customName);
         }
 
         if (this.hasOwner())
         {
-            nbtTagCompound.setString("owner", owner);
+            nbtTagCompound.setString(Names.NBT.OWNER, owner);
         }
     }
 
@@ -89,26 +90,26 @@ public class TileEntityPrefab extends TileEntity
     {
         super.readFromNBT(nbtTagCompound);
 
-        if (nbtTagCompound.hasKey("facing"))
+        if (nbtTagCompound.hasKey(Names.NBT.DIRECTION))
         {
             //this.orientation = EnumFacing.getOrientation(nbtTagCompound.getByte("facing"));
-            this.orientation = EnumFacing.getFront(nbtTagCompound.getByte("facing"));
+            this.orientation = EnumFacing.getFront(nbtTagCompound.getByte(Names.NBT.DIRECTION));
 
         }
 
-        if (nbtTagCompound.hasKey("state"))
+        if (nbtTagCompound.hasKey(Names.NBT.STATE))
         {
-            this.state = nbtTagCompound.getByte("state");
+            this.state = nbtTagCompound.getByte(Names.NBT.STATE);
         }
 
-        if (nbtTagCompound.hasKey("customname"))
+        if (nbtTagCompound.hasKey(Names.NBT.CUSTOM_NAME))
         {
-            this.customName = nbtTagCompound.getString("customname");
+            this.customName = nbtTagCompound.getString(Names.NBT.CUSTOM_NAME);
         }
 
-        if (nbtTagCompound.hasKey("owner"))
+        if (nbtTagCompound.hasKey(Names.NBT.OWNER))
         {
-            this.owner = nbtTagCompound.getString("owner");
+            this.owner = nbtTagCompound.getString(Names.NBT.OWNER);
         }
     }
 
