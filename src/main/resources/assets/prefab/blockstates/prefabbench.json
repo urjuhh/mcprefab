@@ -1,5 +1,8 @@
 {
   "variants": {
-    "normal": {"model": "prefab:prefabbench"}
+    "facing=north": { "model": "prefab:prefabbench" },
+    "facing=south": { "model": "prefab:prefabbench", "y": 180 },
+    "facing=west":  { "model": "prefab:prefabbench", "y": 270 },
+    "facing=east":  { "model": "prefab:prefabbench", "y": 90 }
   }
 }

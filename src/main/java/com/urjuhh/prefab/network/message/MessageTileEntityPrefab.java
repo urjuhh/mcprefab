@@ -1,6 +1,7 @@
 package com.urjuhh.prefab.network.message;
 
 import com.urjuhh.prefab.tileentity.TileEntityPrefab;
+import com.urjuhh.prefab.utility.LogHelper;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
