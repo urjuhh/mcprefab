@@ -6,6 +6,7 @@ import com.urjuhh.prefab.init.ModBlocks;
 import com.urjuhh.prefab.init.ModItems;
 import com.urjuhh.prefab.init.Recipes;
 import com.urjuhh.prefab.init.TileEntities;
+import com.urjuhh.prefab.network.PacketHandler;
 import com.urjuhh.prefab.proxy.IProxy;
 import com.urjuhh.prefab.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -39,6 +40,8 @@ public class Prefab {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         //FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
+
+        PacketHandler.init();
 
         ModBlocks.init();
         ModBlocks.register();

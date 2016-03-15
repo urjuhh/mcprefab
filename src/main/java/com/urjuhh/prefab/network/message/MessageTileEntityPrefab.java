@@ -2,6 +2,7 @@ package com.urjuhh.prefab.network.message;
 
 import com.urjuhh.prefab.tileentity.TileEntityPrefab;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -11,17 +12,18 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class MessageTileEntityPrefab implements IMessage, IMessageHandler<MessageTileEntityPrefab, IMessage>
 {
-    public int x, y, z;
     public BlockPos pos;
     public byte orientation, state;
     public String customName, owner;
 
+    public MessageTileEntityPrefab()
+    {
+
+    }
+
     public MessageTileEntityPrefab(TileEntityPrefab tileEntityPrefab)
     {
         this.pos = tileEntityPrefab.getPos();
-        this.x = this.pos.getX();
-        this.y = this.pos.getY();
-        this.z = this.pos.getZ();
         this.orientation = (byte) tileEntityPrefab.getOrientation().ordinal();
         this.state = (byte) tileEntityPrefab.getState();
         this.customName = tileEntityPrefab.getCustomName();
@@ -31,9 +33,8 @@ public class MessageTileEntityPrefab implements IMessage, IMessageHandler<Messag
     @Override
     public void fromBytes(ByteBuf buf)
     {
-        this.x = buf.readInt();
-        this.y = buf.readInt();
-        this.z = buf.readInt();
+        PacketBuffer myPacket = new PacketBuffer(buf);
+        this.pos = myPacket.readBlockPos();
         this.orientation = buf.readByte();
         this.state = buf.readByte();
         int customNameLength = buf.readInt();
@@ -45,9 +46,8 @@ public class MessageTileEntityPrefab implements IMessage, IMessageHandler<Messag
     @Override
     public void toBytes(ByteBuf buf)
     {
-        buf.writeInt(x);
-        buf.writeInt(y);
-        buf.writeInt(z);
+        PacketBuffer myPacket = new PacketBuffer(buf);
+        myPacket.writeBlockPos(pos);
         buf.writeByte(orientation);
         buf.writeByte(state);
         buf.writeInt(customName.length());
@@ -59,7 +59,7 @@ public class MessageTileEntityPrefab implements IMessage, IMessageHandler<Messag
     @Override
     public IMessage onMessage(MessageTileEntityPrefab message, MessageContext ctx)
     {
-        TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(new BlockPos(message.x, message.y, message.z));
+        TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.pos);
 
         if (tileEntity instanceof TileEntityPrefab)
         {

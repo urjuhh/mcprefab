@@ -4,7 +4,8 @@
         "0": "prefab:blocks/prefab_bench_gradient_side",
         "1": "prefab:blocks/prefabbench_bottom",
         "2": "prefab:blocks/prefabbench_top",
-        "3": "prefab:blocks/prefabbench_side"
+        "3": "prefab:blocks/prefabbench_side",
+        "4": "prefab:blocks/prefab"
     },
     "elements": [
         {
@@ -38,7 +39,7 @@
             "from": [ 1.0, 1.0, 1.0 ], 
             "to": [ 15.0, 15.0, 15.0 ], 
             "faces": {
-                "north": { "texture": "#3", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
+                "north": { "texture": "#4", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
                 "east": { "texture": "#3", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
                 "south": { "texture": "#3", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
                 "west": { "texture": "#3", "uv": [ 2.0, 2.0, 14.0, 14.0 ] },
