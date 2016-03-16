@@ -5,6 +5,7 @@ import com.urjuhh.prefab.init.ModBlocks;
 import com.urjuhh.prefab.reference.Gui;
 import com.urjuhh.prefab.tileentity.TileEntityPrefab;
 import com.urjuhh.prefab.tileentity.TileEntityPrefabBench;
+import com.urjuhh.prefab.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.properties.IProperty;
@@ -67,6 +68,7 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
         }
     }
 
+    /*
     public static void setState(boolean active, World worldIn, BlockPos pos)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos);
@@ -76,18 +78,18 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
         worldIn.setBlockState(pos, ModBlocks.prefabbench.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         worldIn.setBlockState(pos, ModBlocks.prefabbench.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
 
-/*
-        if (active)
-        {
-            worldIn.setBlockState(pos, Blocks.lit_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, Blocks.lit_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-        }
-        else
-        {
-            worldIn.setBlockState(pos, Blocks.furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, Blocks.furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-        }
-*/
+
+        //if (active)
+        //{
+        //    worldIn.setBlockState(pos, Blocks.lit_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+        //    worldIn.setBlockState(pos, Blocks.lit_furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+        //}
+        //else
+        //{
+        //    worldIn.setBlockState(pos, Blocks.furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+        //    worldIn.setBlockState(pos, Blocks.furnace.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+        //}
+
 
         keepInventory = false;
 
@@ -97,6 +99,7 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
             worldIn.setTileEntity(pos, tileentity);
         }
     }
+    */
 
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
@@ -155,11 +158,13 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
         return tileentity != null && tileentity.receiveClientEvent(eventID, eventParam);
     }
 
+    @Override
     protected BlockState createBlockState()
     {
         return new BlockState(this, new IProperty[] {FACING});
     }
 
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         EnumFacing enumfacing = EnumFacing.getFront(meta);
@@ -168,10 +173,10 @@ public class BlockPrefabBench extends BlockPrefab implements ITileEntityProvider
         {
             enumfacing = EnumFacing.NORTH;
         }
-
         return this.getDefaultState().withProperty(FACING, enumfacing);
     }
 
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         return ((EnumFacing)state.getValue(FACING)).getIndex();
